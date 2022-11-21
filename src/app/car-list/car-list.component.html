@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-car-edit></app-car-edit>
+    <hr>
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">numberOfSeats</th>
+          <th scope="col">Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+     <tr *ngFor="let car of (cars|async);">
+          <th scope="row">{{car._id}}</th>
+          <td>{{car.name}}</td>
+          <td>{{car.price}}</td>
+          <td>{{car.numberOfSeats}}</td>
+          <td>{{car._owner}}</td>
+          <th>
+            <button  type="button" class="btn btn-danger" (click)="onDeletecar(car.id)">delete</button>
+           
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <ul class="list-group">
+      <a
+        class="list-group-item"
+        style="cursor: pointer"
+        *ngFor="let car of cars"
+      >
+        {{ car.name }} ({{ car.price }}) {{car.owner}} {{car.numberOfSeats}}
+      </a>
+    </ul> -->
+  </div>
+</div>

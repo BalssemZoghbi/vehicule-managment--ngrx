@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-xs-10">
+    <app-truck-edit></app-truck-edit>
+    <hr>
+    <table class="table table-hover">
+      <thead>
+        <tr class="table-primary">
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">trailerWeight</th>
+          <th scope="col">Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+     <tr *ngFor="let truck of (trucks|async);">
+          <th scope="row">{{truck._id}}</th>
+          <td>{{truck.name}}</td>
+          <td>{{truck.price}}</td>
+          <td>{{truck.trailerWeight}}</td>
+          <td>{{truck._owner}}</td>
+          <th>
+            <button type="button" class="btn btn-danger" (click)="onDeleteTruck(truck.id)">delete</button>
+
+          </th>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>
